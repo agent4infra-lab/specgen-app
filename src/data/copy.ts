@@ -24,7 +24,7 @@ export const copy = {
   paperTitle: 'Go deeper.', paperSubtitle: 'SpecGen: Accelerating Agentic Kernel Optimization with Speculative Generation', read: 'Read the paper', cite: 'Copy BibTeX', copied: 'Copied',
  },
  zh: {
-  nav: ['概览', '工作原理', '交互演示', '实验效果', '论文'], title1: '更好的 kernel。', title2: '不必等到', title3: '思考结束。', subtitle: '把 AI 推理中的等待变成有效工作。模型仍在思考时，SpecGen 已经开始生成、验证和 profiling GPU kernel。', explore: '探索工作原理', watch: '观看 60 秒短片', 
+  nav: ['概览', '工作原理', '交互演示', '实验效果', '论文'], title1: '更好的 kernel。', title2: '不必等到', title3: '思考结束。', subtitle: '把 AI 推理中的等待变成有效工作。模型仍在思考时，SpecGen 已经开始生成、验证和 profiling GPU kernel。', explore: '探索工作原理', watch: '观看 60 秒短片',
   problemTitle: '瓶颈，藏在等待里。', problemBody: '模型思考、生成代码，然后交给 GPU 测试。大部分时间，测试硬件都在等待。如果候选能更早到来呢？', baseline: '串行工作流', proposed: '使用推测生成', idle: 'GPU 等待', useful: '有效工作更早开始', comparisonNote: '概念时间轴 · 使用相同时间尺度 · 非实测运行',
   storyTitle: '不必等待最后一个想法。', storyBody: '跟随一个设计，看它如何成为候选、测量结果，以及提前结束推理的理由。',
   steps: [['从一个 kernel 开始。', '一段 GPU 程序，一个明确的正确性目标。模型开始探索如何让它更快。'], ['一个设计，就足以分叉。', '推理形成具体设计时，SpecController 捕获此刻的前缀。主推理继续前进。'], ['让想法成为代码。', '快速的非推理生成继承此前缀，产出不同的候选 kernel。'], ['让硬件给出答案。', '先验证，再对正确的 kernel 做 profiling。每次有效测量都成为反馈。'], ['找到更好的路径，就提前结束。', '候选超过此前的平均 speedup。结束主生成、取消未完成分支，将反馈带入下一轮。']],
