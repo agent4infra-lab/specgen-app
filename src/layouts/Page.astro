@@ -1,0 +1,75 @@
+---
+import '../styles/global.css';
+import HeroSignal from '../components/HeroSignal.astro';
+import Story from '../components/Story';
+import Lab from '../components/Lab';
+import Systems from '../components/Systems';
+import { getCopy } from '../data/copy';
+import type { Lang } from '../data/scenarios';
+const { lang = 'en' } = Astro.props as {lang:Lang};
+const c = getCopy(lang);
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const localUrl = (path: string) => `${base}${path.replace(/^\//, '')}`;
+const absoluteUrl = (path: string) => new URL(localUrl(path), Astro.site).href;
+const sections=['overview','how-it-works','demo','results','paper'];
+const metrics=['1.68–1.82×','1.58–1.98×','88.2–96.1%','1.24–1.91×'];
+const bibtex=`@article{guo2026specgen,
+  title={SpecGen: Accelerating Agentic Kernel Optimization with Speculative Generation},
+  author={Guo, Jihu and Lu, Sitian and Ma, Tenghui and Gao, Wei and Ye, Zhisheng and Zhang, Xingcheng and Lin, Dahua},
+  journal={arXiv preprint arXiv:2606.17518},
+  year={2026}
+}`;
+---
+<!doctype html>
+<html lang={lang==='en'?'en':'zh-CN'}>
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#0b1016"/>
+  <meta name="description" content={c.subtitle}/>
+  <meta property="og:title" content="SpecGen — Better kernels. Before the thinking ends."/>
+  <meta property="og:description" content={c.subtitle}/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content={absoluteUrl('media/specgen-poster.png')}/>
+  <meta property="og:url" content={absoluteUrl(lang==='en'?'':'zh/')}/>
+  <link rel="canonical" href={absoluteUrl(lang==='en'?'':'zh/')}/>
+  <link rel="icon" href={localUrl('favicon.svg')} type="image/svg+xml"/>
+  <link rel="alternate" hreflang="en" href={absoluteUrl('')}/><link rel="alternate" hreflang="zh-CN" href={absoluteUrl('zh/')}/>
+  <title>{lang==='en'?'SpecGen — Better kernels. Before the thinking ends.':'SpecGen — 更好的 kernel，不必等到思考结束。'}</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">{lang==='en'?'Skip to content':'跳转到正文'}</a>
+  <header class="site-header"><div class="nav-wrap"><a class="brand" href={localUrl(lang==='en'?'':'zh/')} aria-label="SpecGen home"><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M4 4v18M4 12h8l9-8M4 12h8l9 10" stroke="currentColor" stroke-width="1.8"/><circle cx="4" cy="4" r="2" fill="currentColor"/><circle cx="21" cy="4" r="2" fill="currentColor"/><circle cx="21" cy="22" r="2" fill="currentColor"/></svg><span>SpecGen<span class="brand-period">.</span></span></a><nav aria-label={lang==='en'?'Main navigation':'主导航'}>{c.nav.map((label,i)=><a href={`#${sections[i]}`}>{label}</a>)}</nav><div class="nav-actions"><a class="language-link" href={localUrl(lang==='en'?'zh/':'')} data-language-link>{lang==='en'?'中文':'EN'} <span>↗</span></a><a class="paper-nav" href="https://arxiv.org/pdf/2606.17518" target="_blank" rel="noopener">Paper <span>↗</span></a></div></div></header>
+  <main id="main">
+    <section class="hero wrap" id="overview"><div class="hero-copy"><h1>{c.title1}<br/><span class="muted-title">{c.title2}</span><br/><span class="accent-title">{c.title3}</span></h1><p class="hero-description">{c.subtitle}</p><div class="hero-actions"><a class="button primary" href="#how-it-works">{c.explore}<span>↗</span></a><a class="film-link" href="#film"><span class="play-circle">▶</span>{c.watch}</a></div></div><HeroSignal/></section>
+    <section class="problem-section wrap section" id="problem"><div class="section-header"><span class="section-kicker">{lang==='en'?'THE OPPORTUNITY':'等待中的机会'}</span><div><h2>{c.problemTitle}</h2><p class="section-intro">{c.problemBody}</p></div></div><div class="comparison"><div class="comparison-row"><div class="row-title"><span class="mono">BASELINE</span><strong>{c.baseline}</strong></div><div class="timeline-bar"><span class="bar reasoning" style="width:76%">{lang==='en'?'Reasoning & generation':'推理与生成'}</span><span class="bar validate" style="width:12%">{lang==='en'?'Check':'验证'}</span><span class="bar profile" style="width:12%">Profile</span><div class="idle-indicator" style="width:76%">{c.idle}</div></div></div><div class="comparison-row"><div class="row-title"><span class="mono cyan-text">SPECGEN</span><strong>{c.proposed}</strong></div><div class="timeline-bar spec-bar"><span class="bar reasoning" style="width:55%">{lang==='en'?'Reasoning':'推理'}</span><span class="saved-time" style="width:45%">{lang==='en'?'Time reclaimed':'提前结束，节省时间'} ↗</span><div class="parallel-blocks"><i></i><i></i><i></i><span>{c.useful}</span></div></div></div><div class="comparison-footer"><span>0</span><span>{c.comparisonNote}</span><span>TIME →</span></div></div></section>
+    <section class="story-section section" id="how-it-works"><div class="wrap"><div class="section-header"><span class="section-kicker">{lang==='en'?'THE MECHANISM':'工作机制'}</span><div><h2>{c.storyTitle}</h2><p class="section-intro">{c.storyBody}</p></div></div></div><Story lang={lang} client:visible={{rootMargin:"400px"}}/><noscript><ol class="static-steps wrap">{c.steps.map(([title,body])=><li><h3>{title}</h3><p>{body}</p></li>)}</ol></noscript></section>
+    <section class="lab-section section wrap" id="demo"><div class="section-header"><span class="section-kicker">{c.labLabel}</span><div><h2>{c.labTitle}</h2><p class="section-intro">{c.labBody}</p></div></div><Lab lang={lang} client:visible={{rootMargin:"400px"}}/><noscript><p>{lang==='en'?'Enable JavaScript to explore the three illustrative kernel replays: 4D tensor matmul, transposed matmul, and fused GEMM + bias + ReLU.':'启用 JavaScript 可探索三个示意回放：四维张量矩阵乘、转置矩阵乘，以及融合 GEMM + bias + ReLU。'}</p></noscript></section>
+    <section class="system-section section wrap"><div class="section-header"><span class="section-kicker">{lang==='en'?'UNDER THE HOOD':'系统协作'}</span><div><h2>{c.systemTitle}</h2><p class="section-intro">{c.systemBody}</p></div></div><Systems lang={lang} client:visible={{rootMargin:"400px"}}/></section>
+    <section class="results-section section" id="results"><div class="wrap"><div class="section-header"><span class="section-kicker">{lang==='en'?'THE IMPACT':'实验效果'}</span><div><h2>{c.resultsTitle}</h2><p class="section-intro">{c.resultsBody}</p></div></div><div class="reported-label"><span class="square-dot"></span>{c.reported}<a href="https://arxiv.org/pdf/2606.17518#page=9" target="_blank" rel="noopener">§8 ↗</a></div><div class="metric-grid">{metrics.map((metric,i)=><article><strong>{metric}</strong><h3>{c.metricLabels[i]}</h3><p>{c.metricDescriptions[i]}</p></article>)}</div><p class="data-note">{c.resultNote}</p><div class="utilization"><div><h3>{c.utilizationTitle}</h3><p>{c.utilizationNote}</p><div class="chart-legend"><span><i class="color-dot muted"></i>{c.chartLabels[0]}</span><span><i class="color-dot cyan"></i>{c.chartLabels[1]}</span></div></div><div class="utilization-chart" role="img" aria-label="GLM-5.1: baseline 4.2–5.0%, SpecGen 88.2%. DeepSeek-V4-Pro: baseline 11.3–17.6%, SpecGen 96.1%.">{[['GLM-5.1','4.2–5.0','88.2',5,88.2],['DeepSeek-V4-Pro','11.3–17.6','96.1',17.6,96.1]].map(([model,base,sg,bw,sw])=><div class="chart-group"><span class="chart-model mono">{model}</span><div class="chart-track"><div class="baseline-fill" style={`width:${bw}%`}></div><span style={`left:calc(${bw}% + 10px)`}>{base}%</span></div><div class="chart-track"><div class="specgen-fill" style={`width:${sw}%`}></div><span class="inside">{sg}%</span></div></div>)}</div></div></div></section>
+    <section class="film-section section wrap" id="film"><div class="film-heading"><div><span class="section-kicker">{lang==='en'?'THE SHORT FILM':'一分钟短片'}</span><h2>{c.filmTitle}</h2></div><p>{c.filmBody}</p></div><div class="film-player"><video controls controlslist="nodownload" preload="none" poster={localUrl('media/specgen-poster.png?v=3')} playsinline aria-label={lang==='en'?'SpecGen 60-second explainer':'SpecGen 60 秒讲解'}><source src={localUrl('media/specgen-explainer.mp4?v=3')} type="video/mp4"/><track src={localUrl('media/specgen.en.vtt')} kind="subtitles" srclang="en" label="English"/><track src={localUrl('media/specgen.zh.vtt')} kind="subtitles" srclang="zh" label="中文"/></video></div></section>
+    <section class="paper-section section wrap" id="paper"><div><span class="section-kicker">{lang==='en'?'THE PAPER':'研究论文'}</span><h2>{c.paperTitle}</h2></div><div class="paper-detail"><h3>{c.paperSubtitle}</h3><p class="authors">Jihu Guo<span>*</span>, Sitian Lu<span>*</span>, Tenghui Ma, Wei Gao, Zhisheng Ye, Xingcheng Zhang, Dahua Lin</p><p class="paper-meta mono">arXiv:2606.17518 · 2026 <span>{lang==='en'?'* Equal contribution':'* 共同第一作者'}</span></p><div class="paper-actions"><a class="button primary" href="https://arxiv.org/pdf/2606.17518" target="_blank" rel="noopener">{c.read}<span>↗</span></a><button class="button secondary" id="copy-citation" data-copied={c.copied}>{c.cite}<span>⧉</span></button></div><details class="citation-details"><summary>BibTeX</summary><pre id="citation-text">{bibtex}</pre></details></div></section>
+  </main>
+  <footer class="site-footer wrap"><a class="brand" href="#overview">SpecGen<span class="brand-period">.</span></a><a href="#overview" class="back-top" aria-label={lang==='en'?'Back to top':'返回顶部'}>↑</a></footer>
+  <script>
+    import '@fontsource-variable/geist';
+    import '@fontsource-variable/jetbrains-mono';
+    const links = document.querySelectorAll<HTMLAnchorElement>('[data-language-link]');
+    links.forEach(link=>link.addEventListener('click',()=>{link.href = link.pathname + window.location.hash;}));
+    const copyButton=document.querySelector<HTMLButtonElement>('#copy-citation');
+    copyButton?.addEventListener('click',async()=>{
+      const citation=document.querySelector('#citation-text')?.textContent??'';
+      try { await navigator.clipboard.writeText(citation); const old=copyButton.innerHTML; copyButton.textContent=copyButton.dataset.copied??'Copied'; setTimeout(()=>{copyButton.innerHTML=old;},1800); }
+      catch { document.querySelector<HTMLDetailsElement>('.citation-details')?.setAttribute('open',''); }
+    });
+    const hero=document.querySelector<HTMLElement>('.hero-signal');
+    let heroVisible=true;
+    const pauseHero=()=>hero?.classList.toggle('motion-paused',!heroVisible||document.visibilityState!=='visible');
+    const heroObserver=new IntersectionObserver(([entry])=>{heroVisible=entry.isIntersecting;pauseHero();});
+    if(hero)heroObserver.observe(hero);
+    document.addEventListener('visibilitychange',pauseHero);
+    const navLinks=document.querySelectorAll<HTMLAnchorElement>('nav a');
+    const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){navLinks.forEach(link=>link.classList.toggle('active',link.hash===`#${entry.target.id}`));}});},{rootMargin:'-10% 0px -55% 0px'});
+    document.querySelectorAll('main section[id]').forEach(section=>observer.observe(section));
+  </script>
+</body>
+</html>

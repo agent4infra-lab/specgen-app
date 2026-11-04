@@ -1,0 +1,39 @@
+{
+  "name": "specgen-research",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 0.0.0.0",
+    "build": "astro check && astro build",
+    "preview": "astro preview --host 0.0.0.0",
+    "test": "tsx --test tests/*.test.ts",
+    "video:studio": "remotion studio video/index.ts",
+    "video:render": "remotion render video/index.ts SpecGen public/media/specgen-explainer.mp4 --codec h264 --concurrency 4",
+    "video:poster": "remotion still video/index.ts SpecGen public/media/specgen-poster.png --frame 660",
+    "check": "astro check",
+    "video:captions": "tsx video/write-captions.ts",
+    "video:audio": "python3 video/generate_audio.py"
+  },
+  "dependencies": {
+    "@astrojs/react": "7.1.2",
+    "@fontsource-variable/geist": "^5.3.0",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "astro": "7.4.5",
+    "lucide-react": "^0.468.0",
+    "motion": "14.9.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "@remotion/cli": "4.0.540",
+    "@remotion/renderer": "4.0.540",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "remotion": "4.0.540",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  }
+}

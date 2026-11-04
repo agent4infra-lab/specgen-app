@@ -1,0 +1,12 @@
+[
+  {"start":0,"end":8,"text":"Kernel optimization spends most of its time waiting for the model to finish thinking."},
+  {"start":8,"end":14,"text":"Spec Gen watches for concrete design decisions."},
+  {"start":14,"end":18,"text":"The same reasoning prefix seeds several candidates."},
+  {"start":18,"end":26,"text":"Fast generations turn these ideas into kernels, while the main reasoning continues."},
+  {"start":26,"end":34,"text":"Each candidate is compiled, checked for correctness, and then profiled on the GPU."},
+  {"start":34,"end":39,"text":"When a candidate beats the historical average, the main generation stops early."},
+  {"start":39,"end":44,"text":"Otherwise, the main path continues. Feedback guides the next iteration."},
+  {"start":44,"end":49,"text":"An elastic pool moves GPUs to the work at iteration boundaries."},
+  {"start":49,"end":53,"text":"A shared cache reuses reasoning, instead of recomputing it."},
+  {"start":53,"end":60,"text":"Less waiting. More useful feedback. Better kernels. This is Spec Gen."}
+]

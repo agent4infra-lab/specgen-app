@@ -1,0 +1,28 @@
+<div class="hero-signal" aria-hidden="true">
+  <svg viewBox="0 0 620 480" class="hero-svg">
+    <defs>
+      <pattern id="heroGrid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#354754" stroke-width=".5" opacity=".36"/></pattern>
+      <linearGradient id="heroFade" x1="0" x2="1"><stop stop-color="#69d4df" stop-opacity=".06"/><stop offset="1" stop-color="#69d4df" stop-opacity=".2"/></linearGradient>
+      <linearGradient id="chipFace" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#233746"/><stop offset="1" stop-color="#101c27"/></linearGradient>
+      <filter id="softGlow"><feGaussianBlur stdDeviation="3"/></filter>
+    </defs>
+    <path d="M10 420 300 252 610 423M10 336 310 166 610 337M10 252 310 82 610 253M120 478V0M400 480V0" stroke="#2a3b48" stroke-width=".7" opacity=".3" fill="none"/>
+    <rect x="20" y="35" width="580" height="392" fill="url(#heroGrid)" opacity=".7"/>
+    <rect x="44" y="64" width="256" height="285" rx="9" fill="#101a24" stroke="#354653"/>
+    <path d="M44 105H300" stroke="#354653"/>
+    <circle cx="64" cy="85" r="3" fill="#69d4df" class="signal-pulse"/>
+    <text x="78" y="89" fill="#b2c6d4" font-size="10" font-family="monospace" letter-spacing="1.5">REASONING STREAM</text>
+    <g stroke="#496575" stroke-width="4" stroke-linecap="round"><path d="M91 130h99m9 0h45M91 156h136M91 182h58m9 0h98"/><path d="M91 234h110M91 260h75m9 0h43M91 286h138M91 312h96" opacity=".36" class="reasoning-tail"/></g>
+    <rect x="81" y="198" width="204" height="26" rx="3" fill="url(#heroFade)"/>
+    <text x="91" y="215" font-family="monospace" font-size="10" fill="#8be4eb">TILE 32 × 32 · USE SHARED MEM</text>
+    <circle cx="299" cy="211" r="5" fill="#edbd7c"/>
+    <path d="M306 211H337Q355 211 355 193V142Q355 128 372 128H394M306 211H394M306 211H337Q355 211 355 230V282Q355 296 372 296H394" fill="none" stroke="#b28a54" stroke-width="1.5"/>
+    <path d="M306 211H394" stroke="#edbd7c" stroke-width="2" stroke-dasharray="3 7" class="flow-path"/>
+    <g><rect x="394" y="104" width="171" height="48" rx="6" fill="#1d2022" stroke="#7f694b"/><text x="408" y="125" fill="#edbd7c" font-family="monospace" font-size="10">K01</text><text x="408" y="141" fill="#81939e" font-family="monospace" font-size="9">GENERATE → CHECK</text><circle cx="546" cy="121" r="3" fill="#edbd7c"/></g>
+    <g><rect x="394" y="188" width="171" height="48" rx="6" fill="#132723" stroke="#5f9f81"/><text x="408" y="209" fill="#8dd6aa" font-family="monospace" font-size="10">K02</text><text x="408" y="225" fill="#8dd6aa" font-family="monospace" font-size="9">VALIDATED ✓</text><path d="m539 211 5 5 10-12" fill="none" stroke="#8dd6aa" stroke-width="1.6"/></g>
+    <g><rect x="394" y="272" width="171" height="48" rx="6" fill="#231f32" stroke="#706183"/><text x="408" y="293" fill="#b6a2ed" font-family="monospace" font-size="10">K03</text><text x="408" y="309" fill="#b6a2ed" font-family="monospace" font-size="9">PROFILE → FEEDBACK</text><circle cx="546" cy="291" r="3" fill="#b6a2ed"/></g>
+    <path d="M479 323V371Q479 386 463 386H184Q169 386 169 370V349" stroke="#8dd6aa" stroke-width="1.4" fill="none" stroke-dasharray="5 5" class="feedback-path"/>
+    <rect x="247" y="372" width="171" height="27" rx="13.5" fill="#132820" stroke="#3e6857"/><text x="332" y="389" text-anchor="middle" font-size="9" font-family="monospace" fill="#8dd6aa" letter-spacing="1">GOOD ENOUGH. STOP EARLY.</text>
+    <text x="390" y="73" fill="#5f7787" font-size="9" font-family="monospace" letter-spacing="2">SPECULATIVE FORKS</text>
+  </svg>
+</div>

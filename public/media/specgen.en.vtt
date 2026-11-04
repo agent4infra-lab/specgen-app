@@ -1,0 +1,31 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:08.000
+Kernel optimization spends a lot of time waiting for reasoning to finish.
+
+00:00:08.000 --> 00:00:14.000
+SpecGen watches the reasoning stream for useful design decisions.
+
+00:00:14.000 --> 00:00:18.000
+A shared reasoning prefix becomes the starting point for new candidates.
+
+00:00:18.000 --> 00:00:26.000
+Fast, non-reasoning generations produce kernels while the main stream continues.
+
+00:00:26.000 --> 00:00:34.000
+Validate correctness first. Profile only the kernels that pass.
+
+00:00:34.000 --> 00:00:39.000
+A candidate beats the historical mean. The main generation can stop early.
+
+00:00:39.000 --> 00:00:44.000
+Feedback goes to the next iteration. If no candidate qualifies, the main path remains.
+
+00:00:44.000 --> 00:00:49.000
+An elastic GPU pool adapts at iteration boundaries to keep work moving.
+
+00:00:49.000 --> 00:00:53.000
+Shared prefix caches reuse the work already done by the model.
+
+00:00:53.000 --> 00:01:00.000
+Less waiting. More feedback. Better kernels. Read the SpecGen paper.
