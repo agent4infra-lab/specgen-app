@@ -1,0 +1,690 @@
+{
+  "source": {
+    "filename": "SpecGen_vs_Baseline_4tasks_20iter.html",
+    "sha256": "383023bd4bcb87d1611bce5698ca11a9d5422715fbf1f10439ddf2e8846fb766"
+  },
+  "tasks": [
+    {
+      "id": "sqmm",
+      "name": {
+        "en": "Square matrix multiplication",
+        "zh": "方阵乘"
+      },
+      "benchmark": "level1/1_Square_matrix_multiplication_",
+      "level": "level1",
+      "model": "DeepSeek-V4-Flash",
+      "gpu": "B300",
+      "allocation": "fixed",
+      "termination": {
+        "enabled": true,
+        "criteria": "best",
+        "margin": 0.03,
+        "confirm": 2,
+        "grace_ratio": 0.05
+      },
+      "metrics": {
+        "time": {
+          "spec": {
+            "best": 22.2922,
+            "seconds": 6915.0,
+            "tokens": {
+              "in": 37575651,
+              "in_hit_free": 2389944,
+              "in_hit_1_50": 3093659,
+              "out": 4513083,
+              "main_out": 1157424,
+              "spec_out": 3355658,
+              "equivalent": 21145991,
+              "cached": 35185707
+            },
+            "iterations": 19,
+            "cut": true,
+            "profiler": 0.5193,
+            "validator": 0.5434
+          },
+          "base": {
+            "best": 5.9474,
+            "seconds": 6915.0,
+            "tokens": {
+              "in": 196534,
+              "in_hit_free": 104618,
+              "in_hit_1_50": 106456,
+              "out": 1173240,
+              "main_out": 1173240,
+              "spec_out": 0,
+              "equivalent": 4799416,
+              "cached": 91916
+            },
+            "iterations": 20,
+            "cut": false,
+            "profiler": 0.0693,
+            "validator": 0.0174
+          }
+        },
+        "tokens": {
+          "spec": {
+            "best": 5.8341,
+            "seconds": 2061.0,
+            "tokens": {
+              "in": 7135338,
+              "in_hit_free": 631524,
+              "in_hit_1_50": 761601,
+              "out": 1009453,
+              "main_out": 344255,
+              "spec_out": 665198,
+              "equivalent": 4799413,
+              "cached": 6503814
+            },
+            "iterations": 7,
+            "cut": true,
+            "profiler": 0.78,
+            "validator": 0.2879
+          },
+          "base": {
+            "best": 5.9474,
+            "seconds": 6915.0,
+            "tokens": {
+              "in": 196534,
+              "in_hit_free": 104618,
+              "in_hit_1_50": 106456,
+              "out": 1173240,
+              "main_out": 1173240,
+              "spec_out": 0,
+              "equivalent": 4799416,
+              "cached": 91916
+            },
+            "iterations": 20,
+            "cut": false,
+            "profiler": 0.0693,
+            "validator": 0.0174
+          }
+        },
+        "iters": {
+          "spec": {
+            "best": 23.0245,
+            "seconds": 7070.7,
+            "tokens": {
+              "in": 38509737,
+              "in_hit_free": 2427134,
+              "in_hit_1_50": 3148786,
+              "out": 4615668,
+              "main_out": 1181133,
+              "spec_out": 3434535,
+              "equivalent": 21611458,
+              "cached": 36082603
+            },
+            "iterations": 20,
+            "cut": false,
+            "profiler": 0.5236,
+            "validator": 0.5381
+          },
+          "base": {
+            "best": 5.9474,
+            "seconds": 6915.0,
+            "tokens": {
+              "in": 196534,
+              "in_hit_free": 104618,
+              "in_hit_1_50": 106456,
+              "out": 1173240,
+              "main_out": 1173240,
+              "spec_out": 0,
+              "equivalent": 4799416,
+              "cached": 91916
+            },
+            "iterations": 20,
+            "cut": false,
+            "profiler": 0.0693,
+            "validator": 0.0174
+          }
+        }
+      },
+      "outcomes": {
+        "spec": {
+          "best": 23.024452164337042,
+          "end": 7070.697,
+          "first": 89.263,
+          "evaluated": 540,
+          "valid": 164,
+          "aborted": 11,
+          "reach": 2346.567
+        },
+        "base": {
+          "best": 5.947430984836124,
+          "end": 6915.038,
+          "first": 268.289,
+          "evaluated": 19,
+          "valid": 17,
+          "aborted": 0
+        }
+      },
+      "fp8": true,
+      "nonFp8Best": 15.87,
+      "candidateCount": 666,
+      "statusCounts": {
+        "compile_error": 57,
+        "cuda_error": 234,
+        "numerical_error": 73,
+        "runtime_error": 10,
+        "success": 164,
+        "cancelled": 65,
+        "forbidden": 2,
+        "parse_error": 30,
+        "duplicate": 10,
+        "grace_truncated": 19,
+        "llm_error": 2
+      },
+      "hasOmittedPause": true
+    },
+    {
+      "id": "rmsnorm",
+      "name": {
+        "en": "RMSNorm",
+        "zh": "RMSNorm"
+      },
+      "benchmark": "level1/36_RMSNorm_",
+      "level": "level1",
+      "model": "DeepSeek-V4-Flash",
+      "gpu": "B300",
+      "allocation": "fixed",
+      "termination": {
+        "enabled": true,
+        "criteria": "best",
+        "margin": 0.03,
+        "confirm": 2,
+        "grace_ratio": 0.05
+      },
+      "metrics": {
+        "time": {
+          "spec": {
+            "best": 3.9834,
+            "seconds": 5739.3,
+            "tokens": {
+              "in": 15883191,
+              "in_hit_free": 1554415,
+              "in_hit_1_50": 1840990,
+              "out": 2298685,
+              "main_out": 860307,
+              "spec_out": 1438378,
+              "equivalent": 11035730,
+              "cached": 14328776
+            },
+            "iterations": 17,
+            "cut": true,
+            "profiler": 0.7093,
+            "validator": 0.2533
+          },
+          "base": {
+            "best": 3.9405,
+            "seconds": 5739.3,
+            "tokens": {
+              "in": 154104,
+              "in_hit_free": 80345,
+              "in_hit_1_50": 81820,
+              "out": 900670,
+              "main_out": 900670,
+              "spec_out": 0,
+              "equivalent": 3684500,
+              "cached": 73759
+            },
+            "iterations": 20,
+            "cut": false,
+            "profiler": 0.0725,
+            "validator": 0.0205
+          }
+        },
+        "tokens": {
+          "spec": {
+            "best": 3.9728,
+            "seconds": 2440.4,
+            "tokens": {
+              "in": 5668633,
+              "in_hit_free": 550609,
+              "in_hit_1_50": 652969,
+              "out": 757688,
+              "main_out": 329868,
+              "spec_out": 427820,
+              "equivalent": 3683721,
+              "cached": 5118024
+            },
+            "iterations": 7,
+            "cut": true,
+            "profiler": 0.7227,
+            "validator": 0.2495
+          },
+          "base": {
+            "best": 3.9405,
+            "seconds": 5739.3,
+            "tokens": {
+              "in": 154104,
+              "in_hit_free": 80345,
+              "in_hit_1_50": 81820,
+              "out": 900670,
+              "main_out": 900670,
+              "spec_out": 0,
+              "equivalent": 3684500,
+              "cached": 73759
+            },
+            "iterations": 20,
+            "cut": false,
+            "profiler": 0.0725,
+            "validator": 0.0205
+          }
+        },
+        "iters": {
+          "spec": {
+            "best": 4.5789,
+            "seconds": 6362.3,
+            "tokens": {
+              "in": 17565467,
+              "in_hit_free": 1732160,
+              "in_hit_1_50": 2048826,
+              "out": 2575316,
+              "main_out": 947999,
+              "spec_out": 1627317,
+              "equivalent": 12350090,
+              "cached": 15833307
+            },
+            "iterations": 20,
+            "cut": false,
+            "profiler": 0.7008,
+            "validator": 0.2536
+          },
+          "base": {
+            "best": 3.9405,
+            "seconds": 5739.3,
+            "tokens": {
+              "in": 154104,
+              "in_hit_free": 80345,
+              "in_hit_1_50": 81820,
+              "out": 900670,
+              "main_out": 900670,
+              "spec_out": 0,
+              "equivalent": 3684500,
+              "cached": 73759
+            },
+            "iterations": 20,
+            "cut": false,
+            "profiler": 0.0725,
+            "validator": 0.0205
+          }
+        }
+      },
+      "outcomes": {
+        "spec": {
+          "best": 4.57892468180081,
+          "end": 6362.302,
+          "first": 38.139,
+          "evaluated": 381,
+          "valid": 244,
+          "aborted": 2,
+          "reach": 258.69
+        },
+        "base": {
+          "best": 3.9405364597937536,
+          "end": 5739.269,
+          "first": 94.485,
+          "evaluated": 19,
+          "valid": 19,
+          "aborted": 0
+        }
+      },
+      "fp8": false,
+      "nonFp8Best": null,
+      "candidateCount": 400,
+      "statusCounts": {
+        "success": 244,
+        "numerical_error": 73,
+        "cancelled": 5,
+        "cuda_error": 42,
+        "compile_error": 18,
+        "grace_truncated": 6,
+        "runtime_error": 4,
+        "duplicate": 4,
+        "parse_error": 4
+      },
+      "hasOmittedPause": false
+    },
+    {
+      "id": "gelusoftmax",
+      "name": {
+        "en": "Matmul · GELU · Softmax",
+        "zh": "矩阵乘 · GELU · Softmax"
+      },
+      "benchmark": "level2/99_Matmul_GELU_Softmax",
+      "level": "level2",
+      "model": "DeepSeek-V4-Flash",
+      "gpu": "B300",
+      "allocation": "fixed",
+      "termination": {
+        "enabled": true,
+        "criteria": "best",
+        "margin": 0.03,
+        "confirm": 2,
+        "grace_ratio": 0.05
+      },
+      "metrics": {
+        "time": {
+          "spec": {
+            "best": 20.668,
+            "seconds": 6663.6,
+            "tokens": {
+              "in": 31188716,
+              "in_hit_free": 2333812,
+              "in_hit_1_50": 2910910,
+              "out": 4326250,
+              "main_out": 1086610,
+              "spec_out": 3239639,
+              "equivalent": 20215910,
+              "cached": 28854904
+            },
+            "iterations": 20,
+            "cut": false,
+            "profiler": 0.628,
+            "validator": 0.379
+          },
+          "base": {
+            "best": 6.244,
+            "seconds": 6663.6,
+            "tokens": {
+              "in": 218930,
+              "in_hit_free": 127794,
+              "in_hit_1_50": 129617,
+              "out": 1130147,
+              "main_out": 1130147,
+              "spec_out": 0,
+              "equivalent": 4650205,
+              "cached": 91136
+            },
+            "iterations": 17,
+            "cut": true,
+            "profiler": 0.0531,
+            "validator": 0.0168
+          }
+        },
+        "tokens": {
+          "spec": {
+            "best": 6.3093,
+            "seconds": 1596.3,
+            "tokens": {
+              "in": 7261866,
+              "in_hit_free": 506209,
+              "in_hit_1_50": 641322,
+              "out": 1132767,
+              "main_out": 257046,
+              "spec_out": 875721,
+              "equivalent": 5172390,
+              "cached": 6755657
+            },
+            "iterations": 4,
+            "cut": true,
+            "profiler": 0.673,
+            "validator": 0.381
+          },
+          "base": {
+            "best": 6.244,
+            "seconds": 7402.0,
+            "tokens": {
+              "in": 245698,
+              "in_hit_free": 137410,
+              "in_hit_1_50": 139576,
+              "out": 1258204,
+              "main_out": 1258204,
+              "spec_out": 0,
+              "equivalent": 5172392,
+              "cached": 108288
+            },
+            "iterations": 20,
+            "cut": false,
+            "profiler": 0.0517,
+            "validator": 0.0169
+          }
+        },
+        "iters": {
+          "spec": {
+            "best": 20.668,
+            "seconds": 6663.6,
+            "tokens": {
+              "in": 31188716,
+              "in_hit_free": 2333812,
+              "in_hit_1_50": 2910910,
+              "out": 4326250,
+              "main_out": 1086610,
+              "spec_out": 3239639,
+              "equivalent": 20215910,
+              "cached": 28854904
+            },
+            "iterations": 20,
+            "cut": false,
+            "profiler": 0.628,
+            "validator": 0.379
+          },
+          "base": {
+            "best": 6.244,
+            "seconds": 7402.0,
+            "tokens": {
+              "in": 245698,
+              "in_hit_free": 137410,
+              "in_hit_1_50": 139576,
+              "out": 1258204,
+              "main_out": 1258204,
+              "spec_out": 0,
+              "equivalent": 5172392,
+              "cached": 108288
+            },
+            "iterations": 20,
+            "cut": false,
+            "profiler": 0.0517,
+            "validator": 0.0169
+          }
+        }
+      },
+      "outcomes": {
+        "spec": {
+          "best": 20.667972137083794,
+          "end": 6663.653,
+          "first": 166.404,
+          "evaluated": 474,
+          "valid": 190,
+          "aborted": 9,
+          "reach": 757.464
+        },
+        "base": {
+          "best": 6.243983512390538,
+          "end": 7401.99,
+          "first": 810.677,
+          "evaluated": 19,
+          "valid": 13,
+          "aborted": 0
+        }
+      },
+      "fp8": false,
+      "nonFp8Best": null,
+      "candidateCount": 554,
+      "statusCounts": {
+        "llm_error": 5,
+        "compile_error": 74,
+        "runtime_error": 19,
+        "cuda_error": 107,
+        "numerical_error": 84,
+        "success": 189,
+        "cancelled": 50,
+        "parse_error": 12,
+        "duplicate": 8,
+        "benchmark_error": 1,
+        "grace_truncated": 5
+      },
+      "hasOmittedPause": false
+    },
+    {
+      "id": "mlp",
+      "name": {
+        "en": "MLP",
+        "zh": "MLP"
+      },
+      "benchmark": "level3/1_MLP",
+      "level": "level3",
+      "model": "DeepSeek-V4-Flash",
+      "gpu": "B300",
+      "allocation": "fixed",
+      "termination": {
+        "enabled": true,
+        "criteria": "best",
+        "margin": 0.03,
+        "confirm": 2,
+        "grace_ratio": 0.05
+      },
+      "metrics": {
+        "time": {
+          "spec": {
+            "best": 11.5239,
+            "seconds": 7732.4,
+            "tokens": {
+              "in": 20703055,
+              "in_hit_free": 2024570,
+              "in_hit_1_50": 2398139,
+              "out": 3387410,
+              "main_out": 1153558,
+              "spec_out": 2233852,
+              "equivalent": 15947779,
+              "cached": 18678485
+            },
+            "iterations": 20,
+            "cut": false,
+            "profiler": 0.7456,
+            "validator": 0.3097
+          },
+          "base": {
+            "best": 6.4199,
+            "seconds": 7732.4,
+            "tokens": {
+              "in": 234816,
+              "in_hit_free": 137409,
+              "in_hit_1_50": 139357,
+              "out": 1160254,
+              "main_out": 1160254,
+              "spec_out": 0,
+              "equivalent": 4780373,
+              "cached": 97407
+            },
+            "iterations": 16,
+            "cut": true,
+            "profiler": 0.0848,
+            "validator": 0.1338
+          }
+        },
+        "tokens": {
+          "spec": {
+            "best": 6.5254,
+            "seconds": 2933.9,
+            "tokens": {
+              "in": 6218265,
+              "in_hit_free": 758147,
+              "in_hit_1_50": 867350,
+              "out": 1287219,
+              "main_out": 397822,
+              "spec_out": 889397,
+              "equivalent": 6016226,
+              "cached": 5460118
+            },
+            "iterations": 10,
+            "cut": true,
+            "profiler": 0.7537,
+            "validator": 0.2492
+          },
+          "base": {
+            "best": 9.581,
+            "seconds": 9462.3,
+            "tokens": {
+              "in": 288875,
+              "in_hit_free": 170348,
+              "in_hit_1_50": 172719,
+              "out": 1460876,
+              "main_out": 1460876,
+              "spec_out": 0,
+              "equivalent": 6016223,
+              "cached": 118527
+            },
+            "iterations": 20,
+            "cut": false,
+            "profiler": 0.0799,
+            "validator": 0.1209
+          }
+        },
+        "iters": {
+          "spec": {
+            "best": 11.5239,
+            "seconds": 7732.4,
+            "tokens": {
+              "in": 20703055,
+              "in_hit_free": 2024570,
+              "in_hit_1_50": 2398139,
+              "out": 3387410,
+              "main_out": 1153558,
+              "spec_out": 2233852,
+              "equivalent": 15947779,
+              "cached": 18678485
+            },
+            "iterations": 20,
+            "cut": false,
+            "profiler": 0.7456,
+            "validator": 0.3097
+          },
+          "base": {
+            "best": 9.581,
+            "seconds": 9462.3,
+            "tokens": {
+              "in": 288875,
+              "in_hit_free": 170348,
+              "in_hit_1_50": 172719,
+              "out": 1460876,
+              "main_out": 1460876,
+              "spec_out": 0,
+              "equivalent": 6016223,
+              "cached": 118527
+            },
+            "iterations": 20,
+            "cut": false,
+            "profiler": 0.0799,
+            "validator": 0.1209
+          }
+        }
+      },
+      "outcomes": {
+        "spec": {
+          "best": 11.523912668700355,
+          "end": 7732.466,
+          "first": 129.184,
+          "evaluated": 336,
+          "valid": 155,
+          "aborted": 7,
+          "reach": 7721.424
+        },
+        "base": {
+          "best": 9.581009333074023,
+          "end": 9462.314,
+          "first": 311.118,
+          "evaluated": 20,
+          "valid": 15,
+          "aborted": 0
+        }
+      },
+      "fp8": false,
+      "nonFp8Best": null,
+      "candidateCount": 394,
+      "statusCounts": {
+        "compile_error": 55,
+        "numerical_error": 72,
+        "runtime_error": 14,
+        "cuda_error": 39,
+        "cancelled": 39,
+        "success": 155,
+        "forbidden": 1,
+        "parse_error": 7,
+        "llm_error": 3,
+        "duplicate": 4,
+        "grace_truncated": 5
+      },
+      "hasOmittedPause": false
+    }
+  ]
+}

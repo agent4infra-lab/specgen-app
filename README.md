@@ -4,7 +4,7 @@ Website: https://agent4infra-lab.github.io/specgen_demo/
 
 中文: https://agent4infra-lab.github.io/specgen_demo/zh/
 
-An English/Chinese static research site with an interactive mechanism schematic and a three-case trace/code/comparison workbench and a narrated 60-second explainer video. Built with Astro, React, TypeScript, Motion, SVG and Remotion.
+An English/Chinese static research site with an interactive mechanism schematic, a recorded four-task experiment browser, and a narrated 60-second explainer video. Built with Astro, React, TypeScript, Motion, SVG and Remotion.
 
 ## Run locally
 
@@ -45,7 +45,11 @@ Then open the preview server at `/specgen_demo/`. For a different repository or 
 - `src/lib/replay.ts`: pure time-to-state reducer, result history, historical-mean thresholds and cancellation semantics.
 - `src/components/ProcessScene.tsx`: the causal prefix → fork → correctness → profiling → stopping renderer shared by the explanation and video.
 - `src/data/traces.ts`: generated bilingual event records, distinct CUDA design excerpts, baseline comparison fixtures and a line-based diff. Replace these curated records with real experimental traces later.
-- `src/components/Lab.tsx`: trace console, kernel source browser, code diff and paired baseline comparison. It deliberately uses a different representation from the mechanism schematic.
+- `src/components/RecordedLab.tsx`: active Kernel Lab with measured budget comparisons, convergence curves, recorded candidate timelines and captured reasoning prefixes.
+- `src/data/recorded-experiments.json`: small comparison manifest, generated from the supplied four-task report.
+- `public/data/experiments/`: per-task trace data, loaded only when a reader opens that task.
+- `scripts/import-experiment-report.py`: reproducible, allowlisted import from the original report.
+- `src/components/Lab.tsx` and `src/data/traces.ts`: retained illustrative prototype, no longer rendered as the Kernel Lab.
 - `src/layouts/Page.astro`: static page, attributed paper metrics, author information and BibTeX.
 
 ### Replace illustrative traces with recorded runs
@@ -62,6 +66,22 @@ Keep these invariants:
 6. Derive every visible state from the selected time. Never append mutable history during playback.
 
 The data currently demonstrates system behavior; its timings, kernel speedups, shapes and code excerpts are **illustrative**. Code snippets are not runnable kernels. Paper metrics are separately labeled and sourced to arXiv:2606.17518, v1, §§8.2–8.6 and Table 4. They use different baselines/aggregations; do not combine the ranges into a single claimed experiment. Validation/profiling utilization is resource busy time, not hardware SM utilization.
+
+## Recorded experiment provenance
+
+The active Kernel Lab uses `SpecGen_vs_Baseline_4tasks_20iter.html`, supplied on November 7, 2026. The manifest stores its SHA-256. The original HTML is not published: the importer keeps only the needed measurements, reasoning excerpts and candidate metadata, excludes internal run directories/device IDs, and redacts any local paths or addresses in excerpts.
+
+```sh
+python3 scripts/import-experiment-report.py /path/to/SpecGen_vs_Baseline_4tasks_20iter.html
+```
+
+These runs use DeepSeek-V4-Flash via API, B300, fixed validation/profiling pools, and the actual `best` stopping policy (3% margin, two confirmation timings, 5% grace ratio). They are a separate experiment from the H200 paper results shown later on the page. The mechanism illustration remains explicitly illustrative.
+
+- Only `best|time`, `best|tokens`, and `best|iters` from the supplied report are published. Counterfactual `hist_avg` and `first_valid` estimates are not relabeled as measurements.
+- Equivalent token cost is the report's `uncached input + cached input / 50 + 4 × output`, not a live API price. Matched-token slices may differ by rounding a few tokens.
+- Comparison end time is the last iteration boundary. Replay data keeps later Nsight work; the report's clock already excludes downtime between resumed sessions.
+- The report flags square-matmul peaks 21.94× and 23.02× as FP8 e4m3, and reports 15.87× excluding FP8. Individual precision labels are not available for every candidate; no synthetic precision filter is offered.
+- The report includes kernel IDs, statuses and phase intervals, not full CUDA source. The explorer therefore shows original reasoning excerpts and measured stages rather than pretending illustrative kernels are actual outputs.
 
 ## Video
 
