@@ -30,10 +30,12 @@ export function phaseAt(k:RecordedKernel,t:number):string {
  if(t<kernelEnd(k))return 'queued';
  return k.status;
 }
-export function bestAt(curve:[number,number][],until:number){return curve.reduce((best,[t,value])=>t<=until?Math.max(best,value):best,0);}
-export function curvePath(curve:[number,number][],until:number,x:(n:number)=>number,y:(n:number)=>number){
+// The report rounds comparison cutoffs to 0.1 s but retains millisecond event times.
+export const reportedTimeTolerance = 0.051;
+export function bestAt(curve:[number,number][],until:number,tolerance=0){return curve.reduce((best,[t,value])=>t<=until+tolerance?Math.max(best,value):best,0);}
+export function curvePath(curve:[number,number][],until:number,x:(n:number)=>number,y:(n:number)=>number,tolerance=0){
  const points:[number,number][]=[[0,0]];let best=0;
- for(const [t,v] of curve){if(t>until)break;points.push([t,best]);best=Math.max(best,v);points.push([t,best]);}
+ for(const [t,v] of curve){if(t>until+tolerance)break;const endpoint=Math.min(t,until);points.push([endpoint,best]);best=Math.max(best,v);points.push([endpoint,best]);}
  points.push([until,best]);return points.map(([t,v])=>`${x(t)},${y(v)}`).join(' ');
 }
 export function iterationWindow(run:RecordedRun,iteration:number){

@@ -1,7 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {recordedManifest,curvePath,iterationWindow,triggerFor,type RecordedDetail} from '../src/lib/recorded';
+import {recordedManifest,curvePath,bestAt,reportedTimeTolerance,iterationWindow,triggerFor,type RecordedDetail} from '../src/lib/recorded';
 const details=recordedManifest.tasks.map(t=>JSON.parse(readFileSync(`public/data/experiments/${t.id}.json`,'utf8')) as RecordedDetail);
 test('recorded experiment retains all four tasks, twenty iterations and actual setup',()=>{
  assert.equal(recordedManifest.tasks.length,4);
@@ -49,4 +49,14 @@ test('published data excludes internal paths, addresses and estimated policies',
 test('curve rendering holds best-so-far and stops at the budget cutoff',()=>{
  const path=curvePath([[1,2],[2,1],[5,9]],3,x=>x,y=>y);
  assert.equal(path,'0,0 1,0 1,2 2,2 2,2 3,2');
+});
+
+test('rounded report cutoffs preserve the recorded endpoint for every budget and task',()=>{
+ for(const [index,task] of recordedManifest.tasks.entries()){
+  for(const metric of Object.values(task.metrics))for(const side of ['spec','base'] as const){
+   assert.ok(Math.abs(bestAt(details[index].curves[side],metric[side].seconds,reportedTimeTolerance)-metric[side].best)<.001,`${task.id} ${side}`);
+  }
+ }
+ const path=curvePath([[9.999,2],[10.038,3]],10,x=>x,y=>y,reportedTimeTolerance);
+ assert.ok(path.includes('10,3'));assert.ok(!path.includes('10.038'));
 });
