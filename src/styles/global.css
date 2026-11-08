@@ -49,3 +49,5 @@ fieldset.lab{margin:0;padding:0;border:0;min-width:0}fieldset.lab[disabled] .pla
 .recorded-run-observation{padding:0 25px 23px;color:#88a7b8;font-size:11px;line-height:1.9}@media(max-width:480px){.recorded-run-observation{font-size:10px;padding:0 15px 20px}}
 .recorded-candidate-select{display:block;width:calc(100% - 30px);margin:14px 15px 0;padding:10px;background:#142b38;color:#b4d1df;border:1px solid #3d5667;border-radius:3px;font-family:var(--mono);font-size:10px}
 .recorded-timeline-note{font-size:9px;line-height:1.8;color:#6f91a4;padding:0 25px 16px}@media(max-width:480px){.recorded-timeline-note{font-size:8px;padding:0 15px 14px}}
+
+.paper-accepted{display:inline-block;margin-bottom:17px;padding:7px 11px;border:1px solid #466b61;border-radius:3px;background:#14281f;color:#a1d8b7;font-size:11px;font-weight:500;letter-spacing:.2px}

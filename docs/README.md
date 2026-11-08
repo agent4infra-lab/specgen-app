@@ -107,7 +107,7 @@ The existing audio file works on every rendering platform. Regenerating it uses 
 
 Remotion may download Chromium on first use. `npm run video:studio` opens the frame-based composition. The film and website share the causal schematic and candidate state functions. Rebuild the site after regenerating media.
 
-The root README links its video cover to the website player because GitHub sanitizes raw HTML video embeds in Markdown.
+The root README embeds a GitHub-hosted video attachment as a standalone URL. GitHub renders this as an inline player; external MP4 URLs do not provide the same README behavior. After replacing the film, upload the new MP4 through GitHub’s Markdown attachment control and update the stable `https://github.com/user-attachments/assets/...` URL. Do not commit temporary signed media URLs. Website subtitles remain available in the website player.
 
 ## Design and validation
 

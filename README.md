@@ -5,16 +5,17 @@
 **Better kernels. Before the thinking ends.**
 
 [![Website](https://img.shields.io/badge/Website-SpecGen-6fdde8?style=flat-square)](https://agent4infra-lab.github.io/specgen-app/)
+[![PPoPP 2027](https://img.shields.io/badge/PPoPP_2027-Accepted-8b5cf6?style=flat-square)](#paper)
 [![arXiv](https://img.shields.io/badge/arXiv-2606.17518-b31b1b?style=flat-square)](https://arxiv.org/abs/2606.17518)
 [![GitHub Pages](https://github.com/agent4infra-lab/specgen-app/actions/workflows/pages.yml/badge.svg)](https://github.com/agent4infra-lab/specgen-app/actions/workflows/pages.yml)
 
 [Website](https://agent4infra-lab.github.io/specgen-app/) · [中文](https://agent4infra-lab.github.io/specgen-app/zh/) · [Paper](https://arxiv.org/pdf/2606.17518) · [Experiments](https://agent4infra-lab.github.io/specgen-app/#experiments)
 
-[![Watch the one-minute SpecGen film](public/media/specgen-poster.png)](https://agent4infra-lab.github.io/specgen-app/#film)
-
-**[▶ Watch SpecGen in one minute](https://agent4infra-lab.github.io/specgen-app/#film)** — English narration, English and Chinese captions.
-
 </div>
+
+https://github.com/user-attachments/assets/4b0330a9-7b33-4825-9a5e-15db3c13aaaa
+
+**SpecGen in one minute.** English narration; [English and Chinese captions on the website](https://agent4infra-lab.github.io/specgen-app/#film).
 
 ## Speculative generation for kernel optimization
 
@@ -47,6 +48,8 @@ The [experiment explorer](https://agent4infra-lab.github.io/specgen-app/#experim
 
 **[SpecGen: Accelerating Agentic Kernel Optimization with Speculative Generation](https://arxiv.org/abs/2606.17518)**
 
+**Accepted at PPoPP 2027.**
+
 Jihu Guo\*, Sitian Lu\*, Tenghui Ma, Wei Gao, Zhisheng Ye, Xingcheng Zhang, Dahua Lin
 
 \* Equal contribution.
@@ -56,7 +59,8 @@ Jihu Guo\*, Sitian Lu\*, Tenghui Ma, Wei Gao, Zhisheng Ye, Xingcheng Zhang, Dahu
   title={SpecGen: Accelerating Agentic Kernel Optimization with Speculative Generation},
   author={Guo, Jihu and Lu, Sitian and Ma, Tenghui and Gao, Wei and Ye, Zhisheng and Zhang, Xingcheng and Lin, Dahua},
   journal={arXiv preprint arXiv:2606.17518},
-  year={2026}
+  year={2026},
+  note={Accepted at PPoPP 2027}
 }
 ```
 
