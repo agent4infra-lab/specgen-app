@@ -20,7 +20,7 @@ jobs:
       contents: read
       pages: write
     env:
-      BASE_PATH: /specgen_demo
+      BASE_PATH: /specgen-app
       SITE_URL: https://agent4infra-lab.github.io
     steps:
       - name: Check out source
